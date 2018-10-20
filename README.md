@@ -5,6 +5,8 @@ Tools for nodejs to be less painful in windows containers for docker
 * A machine with virtualbox
 * Docker-machine
 * Docker
+* Packer
+
 
 ## Build/Setup
 ### Create Vagrant Box
@@ -12,3 +14,7 @@ Tools for nodejs to be less painful in windows containers for docker
 ``` bash
 make boxes && make install_boxes
 ```
+
+## Incompatibilities
+* Ubuntu's Docker Snap
+  * docker-machine cannot find ~/.docker/machine
