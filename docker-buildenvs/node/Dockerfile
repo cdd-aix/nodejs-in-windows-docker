@@ -5,4 +5,6 @@ RUN iex ((new-object net.webclient).DownloadString('https://chocolatey.org/insta
 RUN choco --help 1>$null 2>$null
 RUN choco install -y nodejs-lts --version 8.12.0
 RUN npm install --global --production hello-world-npm; hello-world-npm
-RUN npm install --global --production bcrypt@^3.0.2
+# RUN npm install --global --production --add-python-to-path windows-build-tools@^5.0.0 --vs2015 --silent --vcc-build-tools-parameters='[""/NoRestart"", ""/NoRefresh""]'
+# RUN $ErrorActionPreference = 'Continue'; $props = Get-ChildItem  -Filter Microsoft.Cpp.Default.props -Recurse Program* 2>$null; Write-Output $props
+# RUN $errorActionPreference='Continue'; npm install --global --production bcrypt@^3.0.2; $errorActionPreferences='Stop'; npm install --global --production bcrypt@^3.0.2
