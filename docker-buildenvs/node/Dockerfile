@@ -5,4 +5,4 @@ RUN iex ((new-object net.webclient).DownloadString('https://chocolatey.org/insta
 RUN choco --help 1>$null 2>$null
 RUN choco install -y nodejs-lts --version 8.12.0
 RUN npm install --global --production hello-world-npm; hello-world-npm
-# RUN npm install --global --production bcrypt@^3.0.2
+RUN npm install --global --production bcrypt@^3.0.2
