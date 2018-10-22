@@ -5,3 +5,17 @@ services:
     image: cdd-aix/node:${node_tag}
     build:
       context: node
+  node-build:
+    image: cdd-aix/node-build:${node_tag}
+    build:
+      context: node
+      dockerfile: Dockerfile-build
+      args:
+        NODE_TAG: ${node_tag}
+  node-build2017:
+    image: cdd-aix/node-build2017:${node_tag}
+    build:
+      context: node
+      dockerfile: Dockerfile-build2017
+      args:
+        NODE_TAG: ${node_tag}
