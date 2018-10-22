@@ -1,0 +1,7 @@
+---
+version: '3'
+services:
+  node:
+    image: cdd-aix/node:${node_tag}
+    build:
+      context: node
