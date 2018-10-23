@@ -1,0 +1,12 @@
+FROM microsoft/windowsservercore:ltsc2016
+ENV chocolateyUseWindowsCompression false
+SHELL ["powershell", "-Command", "$errorActionPreferences = 'Stop'; $ProgressPreference = 'SilentlyContinue';"]
+RUN iex ((new-object net.webclient).DownloadString('https://chocolatey.org/install.ps1'))
+RUN choco --help 1>$null 2>$null
+RUN choco install -y nodejs-lts --version 8.12.0
+RUN npm install --global --production hello-world-npm; hello-world-npm
+RUN npm install --global --production --add-python-to-path windows-build-tools@^5.0.0 --vs2015 --silent --vcc-build-tools-parameters='[""/NoRestart"", ""/NoRefresh""]'
+RUN $ErrorActionPreference = 'Continue'; $props = Get-ChildItem  -Filter Microsoft.Cpp.Default.props -Recurse Program* 2>$null; Write-Output $props
+RUN npm install -ddd --global --build-from-source bcrypt@^3.0.2
+RUN npm install -ddd --global --build-from-source --force bcrypt@^3.0.2
+RUN npm install -ddd --global --force bcrypt@^3.0.2

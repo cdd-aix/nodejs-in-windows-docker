@@ -3,4 +3,3 @@ FROM cdd-aix/node:${NODE_TAG}
 RUN npm install --global --production --add-python-to-path windows-build-tools@^5.0.0 --vs2015 --silent --vcc-build-tools-parameters='[""/NoRestart"", ""/NoRefresh""]'
 RUN $ErrorActionPreference = 'Continue'; $props = Get-ChildItem  -Filter Microsoft.Cpp.Default.props -Recurse Program* 2>$null; Write-Output $props
 RUN npm install --global --build-from-source bcrypt@^3.0.2
-RUN npm install --verbose --global --force bcrypt@^3.0.2

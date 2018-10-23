@@ -19,3 +19,8 @@ services:
       dockerfile: Dockerfile-build2017
       args:
         NODE_TAG: ${node_tag}
+  node-bug:
+    image: cdd-aix/node-bug:${node_tag}
+    build:
+      context: node
+      dockerfile: Dockerfile-node-gyp-bug
