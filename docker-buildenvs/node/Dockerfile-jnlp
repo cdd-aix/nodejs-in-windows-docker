@@ -1,0 +1,8 @@
+ARG BUILD_TAG
+FROM cdd-aix/node-build:${BUILD_TAG}
+ENTRYPOINT [ "./slave-launch.ps1" ]
+ADD https://repo.jenkins-ci.org/public/org/jenkins-ci/main/remoting/3.27/remoting-3.27.jar ./slave.jar
+ADD https://raw.githubusercontent.com/JonCubed/docker-jenkins-jnlp-slave-windows/master/slave-launch.ps1 .
+RUN choco install -y git --version 2.19.1
+RUN git --version
+RUN choco install -y zulu8 --version 8.8.30
